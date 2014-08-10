@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>FB3E1876-0CC8-4029-BFDB-50304DC628D1</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ButtonMadness</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9EFF3645-AAD2-4E31-9EAA-9FCB977877F4</key>
+		<string>https://bitbucket.org/TongGuo/buttonmadness.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ButtonMadness.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9EFF3645-AAD2-4E31-9EAA-9FCB977877F4</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/TongGuo/buttonmadness.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9EFF3645-AAD2-4E31-9EAA-9FCB977877F4</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9EFF3645-AAD2-4E31-9EAA-9FCB977877F4</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ButtonMadness</string>
+		</dict>
+	</array>
+</dict>
+</plist>
