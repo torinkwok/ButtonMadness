@@ -12,11 +12,15 @@
                 <outlet property="_buttonsBox" destination="Gal-4Q-65L" id="hLi-te-EMP"/>
                 <outlet property="_buttonsBoxPlaceholderDown" destination="zlT-3N-Rd7" id="u6W-TT-6z7"/>
                 <outlet property="_buttonsBoxPlaceholderUp" destination="6Vl-AS-XN5" id="Qy1-q1-eBd"/>
+                <outlet property="_colorWellsBox" destination="0UW-CM-BBO" id="8xJ-XR-L0p"/>
+                <outlet property="_colorWellsPlaceholder" destination="crh-GU-TT0" id="ISZ-7R-iwj"/>
+                <outlet property="_levelAdjuster" destination="Obk-nj-nAG" id="odv-YH-alr"/>
                 <outlet property="_levelIndicatorsBox" destination="rM4-Tj-lDY" id="A3r-ia-MCK"/>
-                <outlet property="_levelIndicatorsPlaceholder" destination="tnJ-SI-fsl" id="Z6s-AY-2SS"/>
+                <outlet property="_levelIndicatorsPlaceholder" destination="tnJ-SI-fsl" id="3nV-xN-Fdt"/>
                 <outlet property="_matrixesBox" destination="D3r-oH-TwW" id="nBB-rv-nVF"/>
                 <outlet property="_matrixesBoxPlaceholder" destination="Bfz-ba-2d8" id="uaR-uH-7Jd"/>
                 <outlet property="_nibBasedBevelButton" destination="v1p-nn-RAd" id="C0o-z2-phI"/>
+                <outlet property="_nibBasedColorWell" destination="PEj-6R-yXf" id="IOI-lc-mhL"/>
                 <outlet property="_nibBasedLevelIndicator" destination="vL4-7M-zQR" id="Bhp-wl-uap"/>
                 <outlet property="_nibBasedMatrix" destination="AWh-Tc-ttn" id="puk-3U-APo"/>
                 <outlet property="_nibBasedPopUpButtonDown" destination="9vG-qz-G1e" id="w64-eE-peb"/>
@@ -111,6 +115,9 @@
                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                         <font key="font" metaFont="miniSystem"/>
                                     </buttonCell>
+                                    <connections>
+                                        <action selector="changedIsPullDown:" target="-2" id="OXm-DE-h7P"/>
+                                    </connections>
                                 </button>
                                 <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0od-W1-Drl">
                                     <rect key="frame" x="16" y="49" width="76" height="60"/>
@@ -158,6 +165,9 @@
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system" size="10"/>
                                     </buttonCell>
+                                    <connections>
+                                        <action selector="buttonsActions:" target="-2" id="Utp-Rx-nxC"/>
+                                    </connections>
                                 </button>
                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3WA-Jk-g6W">
                                     <rect key="frame" x="18" y="50" width="108" height="59"/>
@@ -166,6 +176,9 @@
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system" size="10"/>
                                     </buttonCell>
+                                    <connections>
+                                        <action selector="buttonsActions:" target="-2" id="uz0-Gf-DFN"/>
+                                    </connections>
                                 </button>
                                 <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Vl-AS-XN5">
                                     <rect key="frame" x="146" y="118" width="112" height="60"/>
@@ -182,6 +195,9 @@
                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                         <font key="font" metaFont="miniSystem"/>
                                     </buttonCell>
+                                    <connections>
+                                        <action selector="changedIsUseIction:" target="-2" id="EHM-qT-tGr"/>
+                                    </connections>
                                 </button>
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zzn-CT-3ga">
                                     <rect key="frame" x="82" y="12" width="115" height="17"/>
@@ -190,6 +206,9 @@
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="miniSystem"/>
                                     </buttonCell>
+                                    <connections>
+                                        <action selector="dropDownButtonAction:" target="-2" id="xBw-DF-5Fu"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </view>
@@ -234,6 +253,9 @@
                                             </buttonCell>
                                         </column>
                                     </cells>
+                                    <connections>
+                                        <action selector="changedRadio:" target="-2" id="2Jw-ie-I53"/>
+                                    </connections>
                                 </matrix>
                                 <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bfz-ba-2d8">
                                     <rect key="frame" x="93" y="22" width="70" height="38"/>
@@ -282,6 +304,9 @@
                                     <rect key="frame" x="18" y="21" width="60" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="colorWellAction:" target="-2" id="ngO-d0-QJa"/>
+                                    </connections>
                                 </colorWell>
                                 <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="crh-GU-TT0">
                                     <rect key="frame" x="103" y="21" width="60" height="40"/>
@@ -319,6 +344,9 @@
                                             <segment label="Three" width="99"/>
                                         </segments>
                                     </segmentedCell>
+                                    <connections>
+                                        <action selector="segmentsAction:" target="-2" id="lze-PC-3h7"/>
+                                    </connections>
                                 </segmentedControl>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fGt-ba-uC2">
                                     <rect key="frame" x="-1" y="45" width="74" height="17"/>
@@ -340,6 +368,9 @@
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="smallSystem"/>
                                     </buttonCell>
+                                    <connections>
+                                        <action selector="unselectorAction:" target="-2" id="hhG-a0-BRX"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </view>
@@ -375,6 +406,9 @@
                                     <rect key="frame" x="75" y="74" width="182" height="25"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <levelIndicatorCell key="cell" alignment="left" maxValue="10" warningValue="2" criticalValue="2" numberOfMajorTickMarks="4" numberOfTickMarks="7" id="lVu-1O-cTb"/>
+                                    <connections>
+                                        <action selector="levelIndicatorAction:" target="-2" id="Rm2-7f-Od3"/>
+                                    </connections>
                                 </levelIndicator>
                                 <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tnJ-SI-fsl">
                                     <rect key="frame" x="75" y="43" width="182" height="25"/>
@@ -384,6 +418,9 @@
                                     <rect key="frame" x="262" y="59" width="19" height="27"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <stepperCell key="cell" continuous="YES" alignment="left" maxValue="100" id="0tL-dj-6Xj"/>
+                                    <connections>
+                                        <action selector="levelAdjusterAction:" target="-2" id="Hyc-tu-PNw"/>
+                                    </connections>
                                 </stepper>
                                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jWb-uu-cEC">
                                     <rect key="frame" x="44" y="11" width="234" height="22"/>
@@ -400,6 +437,9 @@
                                             </items>
                                         </menu>
                                     </popUpButtonCell>
+                                    <connections>
+                                        <action selector="setStyleAction:" target="-2" id="Obq-lz-h6B"/>
+                                    </connections>
                                 </popUpButton>
                                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pMR-RD-go0">
                                     <rect key="frame" x="2" y="17" width="39" height="11"/>
@@ -420,9 +460,21 @@
         </window>
         <menu title="Menu" id="fPz-1T-NhS" userLabel="Menu (Menu)">
             <items>
-                <menuItem title="Now is the time" tag="1" id="AZO-yR-XoV"/>
-                <menuItem title="For all good programmers" tag="2" id="56L-Al-TFv"/>
-                <menuItem title="To come to serve their code" tag="3" id="7cw-xL-V04"/>
+                <menuItem title="Now is the time" tag="1" id="AZO-yR-XoV">
+                    <connections>
+                        <action selector="popupAction:" target="-2" id="dMz-kA-cVJ"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="For all good programmers" tag="2" id="56L-Al-TFv">
+                    <connections>
+                        <action selector="popupAction:" target="-2" id="sBd-IM-5iu"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="To come to serve their code" tag="3" id="7cw-xL-V04">
+                    <connections>
+                        <action selector="popupAction:" target="-2" id="Tbs-ZP-xnB"/>
+                    </connections>
+                </menuItem>
             </items>
         </menu>
     </objects>

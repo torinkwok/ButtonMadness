@@ -41,7 +41,7 @@
     // Nib based controls
     @property ( assign ) IBOutlet NSPopUpButton* _nibBasedPopUpButtonDown;
     @property ( assign ) IBOutlet NSPopUpButton* _nibBasedPopUpButtonRight;
-        @property ( assign ) IBOutlet NSMenu* _nibBasedPopUpButtonRightMenu;
+        @property ( copy ) IBOutlet NSMenu* _nibBasedPopUpButtonRightMenu;
 
     // Code based controls
     @property ( assign ) IBOutlet NSView* _popUpButtonsBoxPlaceholderUp;
@@ -80,9 +80,19 @@
     @property ( assign ) IBOutlet NSView* _matrixesBoxPlaceholder;
         @property ( retain ) NSMatrix* _codeBasedMatrix;
 
+#pragma mark Color Wells Box
+@property ( assign ) IBOutlet NSBox* _colorWellsBox;
+    // Nib based controls
+    @property ( assign ) IBOutlet NSColorWell* _nibBasedColorWell;
+
+    // Code based controls
+    @property ( assign ) IBOutlet NSView* _colorWellsPlaceholder;
+        @property ( retain ) NSColorWell* _codeBasedColorWell;
+
 #pragma mark Level Indicators Box
 @property ( assign ) IBOutlet NSBox* _levelIndicatorsBox;
     // Nib based controls
+    @property ( assign ) IBOutlet NSStepper* _levelAdjuster;
     @property ( assign ) IBOutlet NSLevelIndicator* _nibBasedLevelIndicator;
 
     // Code based controls
@@ -90,6 +100,32 @@
         @property ( retain ) NSLevelIndicator* _codeBasedLevelIndicator;
 
 + ( id ) mainWindowController;
+
+#pragma mark The action methods for all the buttons
+// Action methods for the controls that reside in NSPopUpButton box
+- ( IBAction ) changedIsPullDown: ( id )_Sender;
+- ( IBAction ) popupAction: ( id )_Sender;
+
+// Action methods for the controls that reside in NSButton box
+- ( IBAction ) changedIsUseIction: ( id )_Sender;
+- ( IBAction ) buttonsActions: ( id )_Sender;
+
+- ( IBAction ) dropDownButtonAction: ( id )_Sender;
+
+// Action methods for the controls that reside in NSSegmentedControl box
+- ( IBAction ) segmentsAction: ( id )_Sender;
+- ( IBAction ) unselectorAction: ( id )_Sender;
+
+// Action methods for the controls that reside in NSMatrix box
+- ( IBAction ) changedRadio: ( id )_Sender;
+
+// Action methods for the controls that reside in NSColorWell box
+- ( IBAction ) colorWellAction: ( id )_Sender;
+
+// Action methods for the controls that reside in NSLevelIndicator box
+- ( IBAction ) levelAdjusterAction: ( id )_Sender;
+- ( IBAction ) levelIndicatorAction: ( id )_Sender;
+- ( IBAction ) setStyleAction: ( id )_Sender;
 
 @end // BMMainWindowController
 
