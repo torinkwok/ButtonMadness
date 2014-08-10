@@ -21,6 +21,8 @@
 		83C6A28819976A5300A484D3 /* BMMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C6A28719976A5300A484D3 /* BMMainWindowController.m */; };
 		83C6A28A19976AAE00A484D3 /* BMMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83C6A28919976AAE00A484D3 /* BMMainWindow.xib */; };
 		83C6A28E19976BF800A484D3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 83C6A28D19976BF800A484D3 /* README.md */; };
+		83C6A2991997977500A484D3 /* moof.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C6A2971997977500A484D3 /* moof.png */; };
+		83C6A29A1997977500A484D3 /* moof2.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C6A2981997977500A484D3 /* moof2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		83C6A28919976AAE00A484D3 /* BMMainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BMMainWindow.xib; path = ButtonMadness/BMMainWindow.xib; sourceTree = "<group>"; };
 		83C6A28C19976AF400A484D3 /* BMCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMCommon.h; path = ButtonMadness/BMCommon.h; sourceTree = "<group>"; };
 		83C6A28D19976BF800A484D3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		83C6A2971997977500A484D3 /* moof.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moof.png; sourceTree = "<group>"; };
+		83C6A2981997977500A484D3 /* moof2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moof2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 				83C6A28C19976AF400A484D3 /* BMCommon.h */,
 				83C6A25819976A0F00A484D3 /* ButtonMadness */,
 				83C6A28B19976AB300A484D3 /* User Interface */,
+				83C6A291199793CD00A484D3 /* Resource */,
 				83C6A27619976A0F00A484D3 /* ButtonMadnessTests */,
 				83C6A25119976A0F00A484D3 /* Frameworks */,
 				83C6A25019976A0F00A484D3 /* Products */,
@@ -175,6 +180,15 @@
 			name = "User Interface";
 			sourceTree = "<group>";
 		};
+		83C6A291199793CD00A484D3 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				83C6A2971997977500A484D3 /* moof.png */,
+				83C6A2981997977500A484D3 /* moof2.png */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -253,6 +267,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				83C6A28E19976BF800A484D3 /* README.md in Resources */,
+				83C6A2991997977500A484D3 /* moof.png in Resources */,
+				83C6A29A1997977500A484D3 /* moof2.png in Resources */,
 				83C6A25D19976A0F00A484D3 /* InfoPlist.strings in Resources */,
 				83C6A26B19976A0F00A484D3 /* Images.xcassets in Resources */,
 				83C6A26319976A0F00A484D3 /* Credits.rtf in Resources */,
