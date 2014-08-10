@@ -1,0 +1,505 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		83C6A25319976A0F00A484D3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C6A25219976A0F00A484D3 /* Cocoa.framework */; };
+		83C6A25D19976A0F00A484D3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83C6A25B19976A0F00A484D3 /* InfoPlist.strings */; };
+		83C6A25F19976A0F00A484D3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C6A25E19976A0F00A484D3 /* main.m */; };
+		83C6A26319976A0F00A484D3 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 83C6A26119976A0F00A484D3 /* Credits.rtf */; };
+		83C6A26619976A0F00A484D3 /* BMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C6A26519976A0F00A484D3 /* BMAppDelegate.m */; };
+		83C6A26919976A0F00A484D3 /* BMMainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83C6A26719976A0F00A484D3 /* BMMainMenu.xib */; };
+		83C6A26B19976A0F00A484D3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83C6A26A19976A0F00A484D3 /* Images.xcassets */; };
+		83C6A27219976A0F00A484D3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C6A27119976A0F00A484D3 /* XCTest.framework */; };
+		83C6A27319976A0F00A484D3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C6A25219976A0F00A484D3 /* Cocoa.framework */; };
+		83C6A27B19976A0F00A484D3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83C6A27919976A0F00A484D3 /* InfoPlist.strings */; };
+		83C6A27D19976A0F00A484D3 /* ButtonMadnessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C6A27C19976A0F00A484D3 /* ButtonMadnessTests.m */; };
+		83C6A28819976A5300A484D3 /* BMMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C6A28719976A5300A484D3 /* BMMainWindowController.m */; };
+		83C6A28A19976AAE00A484D3 /* BMMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83C6A28919976AAE00A484D3 /* BMMainWindow.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		83C6A27419976A0F00A484D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83C6A24719976A0F00A484D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 83C6A24E19976A0F00A484D3;
+			remoteInfo = ButtonMadness;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		83C6A24F19976A0F00A484D3 /* ButtonMadness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ButtonMadness.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		83C6A25219976A0F00A484D3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		83C6A25519976A0F00A484D3 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		83C6A25619976A0F00A484D3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		83C6A25719976A0F00A484D3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		83C6A25A19976A0F00A484D3 /* ButtonMadness-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ButtonMadness-Info.plist"; sourceTree = "<group>"; };
+		83C6A25C19976A0F00A484D3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		83C6A25E19976A0F00A484D3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		83C6A26019976A0F00A484D3 /* ButtonMadness-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ButtonMadness-Prefix.pch"; sourceTree = "<group>"; };
+		83C6A26219976A0F00A484D3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		83C6A26419976A0F00A484D3 /* BMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMAppDelegate.h; sourceTree = "<group>"; };
+		83C6A26519976A0F00A484D3 /* BMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMAppDelegate.m; sourceTree = "<group>"; };
+		83C6A26819976A0F00A484D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BMMainMenu.xib; sourceTree = "<group>"; };
+		83C6A26A19976A0F00A484D3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		83C6A27019976A0F00A484D3 /* ButtonMadnessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ButtonMadnessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		83C6A27119976A0F00A484D3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		83C6A27819976A0F00A484D3 /* ButtonMadnessTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ButtonMadnessTests-Info.plist"; sourceTree = "<group>"; };
+		83C6A27A19976A0F00A484D3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		83C6A27C19976A0F00A484D3 /* ButtonMadnessTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButtonMadnessTests.m; sourceTree = "<group>"; };
+		83C6A28619976A5300A484D3 /* BMMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMMainWindowController.h; sourceTree = "<group>"; };
+		83C6A28719976A5300A484D3 /* BMMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMMainWindowController.m; sourceTree = "<group>"; };
+		83C6A28919976AAE00A484D3 /* BMMainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BMMainWindow.xib; path = ButtonMadness/BMMainWindow.xib; sourceTree = "<group>"; };
+		83C6A28C19976AF400A484D3 /* BMCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMCommon.h; path = ButtonMadness/BMCommon.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		83C6A24C19976A0F00A484D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83C6A25319976A0F00A484D3 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83C6A26D19976A0F00A484D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83C6A27319976A0F00A484D3 /* Cocoa.framework in Frameworks */,
+				83C6A27219976A0F00A484D3 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		83C6A24619976A0F00A484D3 = {
+			isa = PBXGroup;
+			children = (
+				83C6A28C19976AF400A484D3 /* BMCommon.h */,
+				83C6A25819976A0F00A484D3 /* ButtonMadness */,
+				83C6A28B19976AB300A484D3 /* User Interface */,
+				83C6A27619976A0F00A484D3 /* ButtonMadnessTests */,
+				83C6A25119976A0F00A484D3 /* Frameworks */,
+				83C6A25019976A0F00A484D3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		83C6A25019976A0F00A484D3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				83C6A24F19976A0F00A484D3 /* ButtonMadness.app */,
+				83C6A27019976A0F00A484D3 /* ButtonMadnessTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		83C6A25119976A0F00A484D3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				83C6A25219976A0F00A484D3 /* Cocoa.framework */,
+				83C6A27119976A0F00A484D3 /* XCTest.framework */,
+				83C6A25419976A0F00A484D3 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		83C6A25419976A0F00A484D3 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				83C6A25519976A0F00A484D3 /* AppKit.framework */,
+				83C6A25619976A0F00A484D3 /* CoreData.framework */,
+				83C6A25719976A0F00A484D3 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		83C6A25819976A0F00A484D3 /* ButtonMadness */ = {
+			isa = PBXGroup;
+			children = (
+				83C6A26419976A0F00A484D3 /* BMAppDelegate.h */,
+				83C6A26519976A0F00A484D3 /* BMAppDelegate.m */,
+				83C6A28619976A5300A484D3 /* BMMainWindowController.h */,
+				83C6A28719976A5300A484D3 /* BMMainWindowController.m */,
+				83C6A25E19976A0F00A484D3 /* main.m */,
+				83C6A26A19976A0F00A484D3 /* Images.xcassets */,
+				83C6A25919976A0F00A484D3 /* Supporting Files */,
+			);
+			path = ButtonMadness;
+			sourceTree = "<group>";
+		};
+		83C6A25919976A0F00A484D3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				83C6A25A19976A0F00A484D3 /* ButtonMadness-Info.plist */,
+				83C6A25B19976A0F00A484D3 /* InfoPlist.strings */,
+				83C6A26019976A0F00A484D3 /* ButtonMadness-Prefix.pch */,
+				83C6A26119976A0F00A484D3 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		83C6A27619976A0F00A484D3 /* ButtonMadnessTests */ = {
+			isa = PBXGroup;
+			children = (
+				83C6A27C19976A0F00A484D3 /* ButtonMadnessTests.m */,
+				83C6A27719976A0F00A484D3 /* Supporting Files */,
+			);
+			path = ButtonMadnessTests;
+			sourceTree = "<group>";
+		};
+		83C6A27719976A0F00A484D3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				83C6A27819976A0F00A484D3 /* ButtonMadnessTests-Info.plist */,
+				83C6A27919976A0F00A484D3 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		83C6A28B19976AB300A484D3 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				83C6A26719976A0F00A484D3 /* BMMainMenu.xib */,
+				83C6A28919976AAE00A484D3 /* BMMainWindow.xib */,
+			);
+			name = "User Interface";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		83C6A24E19976A0F00A484D3 /* ButtonMadness */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83C6A28019976A0F00A484D3 /* Build configuration list for PBXNativeTarget "ButtonMadness" */;
+			buildPhases = (
+				83C6A24B19976A0F00A484D3 /* Sources */,
+				83C6A24C19976A0F00A484D3 /* Frameworks */,
+				83C6A24D19976A0F00A484D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ButtonMadness;
+			productName = ButtonMadness;
+			productReference = 83C6A24F19976A0F00A484D3 /* ButtonMadness.app */;
+			productType = "com.apple.product-type.application";
+		};
+		83C6A26F19976A0F00A484D3 /* ButtonMadnessTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83C6A28319976A0F00A484D3 /* Build configuration list for PBXNativeTarget "ButtonMadnessTests" */;
+			buildPhases = (
+				83C6A26C19976A0F00A484D3 /* Sources */,
+				83C6A26D19976A0F00A484D3 /* Frameworks */,
+				83C6A26E19976A0F00A484D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				83C6A27519976A0F00A484D3 /* PBXTargetDependency */,
+			);
+			name = ButtonMadnessTests;
+			productName = ButtonMadnessTests;
+			productReference = 83C6A27019976A0F00A484D3 /* ButtonMadnessTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83C6A24719976A0F00A484D3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = BM;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Tong G.";
+				TargetAttributes = {
+					83C6A26F19976A0F00A484D3 = {
+						TestTargetID = 83C6A24E19976A0F00A484D3;
+					};
+				};
+			};
+			buildConfigurationList = 83C6A24A19976A0F00A484D3 /* Build configuration list for PBXProject "ButtonMadness" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 83C6A24619976A0F00A484D3;
+			productRefGroup = 83C6A25019976A0F00A484D3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				83C6A24E19976A0F00A484D3 /* ButtonMadness */,
+				83C6A26F19976A0F00A484D3 /* ButtonMadnessTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		83C6A24D19976A0F00A484D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83C6A25D19976A0F00A484D3 /* InfoPlist.strings in Resources */,
+				83C6A26B19976A0F00A484D3 /* Images.xcassets in Resources */,
+				83C6A26319976A0F00A484D3 /* Credits.rtf in Resources */,
+				83C6A26919976A0F00A484D3 /* BMMainMenu.xib in Resources */,
+				83C6A28A19976AAE00A484D3 /* BMMainWindow.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83C6A26E19976A0F00A484D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83C6A27B19976A0F00A484D3 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		83C6A24B19976A0F00A484D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83C6A28819976A5300A484D3 /* BMMainWindowController.m in Sources */,
+				83C6A25F19976A0F00A484D3 /* main.m in Sources */,
+				83C6A26619976A0F00A484D3 /* BMAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83C6A26C19976A0F00A484D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83C6A27D19976A0F00A484D3 /* ButtonMadnessTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		83C6A27519976A0F00A484D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 83C6A24E19976A0F00A484D3 /* ButtonMadness */;
+			targetProxy = 83C6A27419976A0F00A484D3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		83C6A25B19976A0F00A484D3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83C6A25C19976A0F00A484D3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		83C6A26119976A0F00A484D3 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83C6A26219976A0F00A484D3 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		83C6A26719976A0F00A484D3 /* BMMainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83C6A26819976A0F00A484D3 /* Base */,
+			);
+			name = BMMainMenu.xib;
+			path = ButtonMadness;
+			sourceTree = "<group>";
+		};
+		83C6A27919976A0F00A484D3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83C6A27A19976A0F00A484D3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		83C6A27E19976A0F00A484D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		83C6A27F19976A0F00A484D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		83C6A28119976A0F00A484D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ButtonMadness/ButtonMadness-Prefix.pch";
+				INFOPLIST_FILE = "ButtonMadness/ButtonMadness-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		83C6A28219976A0F00A484D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ButtonMadness/ButtonMadness-Prefix.pch";
+				INFOPLIST_FILE = "ButtonMadness/ButtonMadness-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		83C6A28419976A0F00A484D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ButtonMadness.app/Contents/MacOS/ButtonMadness";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ButtonMadness/ButtonMadness-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ButtonMadnessTests/ButtonMadnessTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		83C6A28519976A0F00A484D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ButtonMadness.app/Contents/MacOS/ButtonMadness";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ButtonMadness/ButtonMadness-Prefix.pch";
+				INFOPLIST_FILE = "ButtonMadnessTests/ButtonMadnessTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		83C6A24A19976A0F00A484D3 /* Build configuration list for PBXProject "ButtonMadness" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83C6A27E19976A0F00A484D3 /* Debug */,
+				83C6A27F19976A0F00A484D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83C6A28019976A0F00A484D3 /* Build configuration list for PBXNativeTarget "ButtonMadness" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83C6A28119976A0F00A484D3 /* Debug */,
+				83C6A28219976A0F00A484D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		83C6A28319976A0F00A484D3 /* Build configuration list for PBXNativeTarget "ButtonMadnessTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83C6A28419976A0F00A484D3 /* Debug */,
+				83C6A28519976A0F00A484D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 83C6A24719976A0F00A484D3 /* Project object */;
+}
