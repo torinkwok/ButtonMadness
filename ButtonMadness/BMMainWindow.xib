@@ -6,14 +6,12 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="BMMainWindowController">
             <connections>
-                <outlet property="_buttonBox" destination="Gal-4Q-65L" id="ANI-IK-Puy"/>
-                <outlet property="_buttonBoxPlaceHolderDown" destination="zlT-3N-Rd7" id="JVi-z4-g6r"/>
-                <outlet property="_buttonBoxPlaceHolderUp" destination="6Vl-AS-XN5" id="Pd0-uB-kYf"/>
                 <outlet property="_buttonsBox" destination="Gal-4Q-65L" id="hLi-te-EMP"/>
                 <outlet property="_buttonsBoxPlaceholderDown" destination="zlT-3N-Rd7" id="u6W-TT-6z7"/>
                 <outlet property="_buttonsBoxPlaceholderUp" destination="6Vl-AS-XN5" id="Qy1-q1-eBd"/>
                 <outlet property="_colorWellsBox" destination="0UW-CM-BBO" id="8xJ-XR-L0p"/>
                 <outlet property="_colorWellsPlaceholder" destination="crh-GU-TT0" id="ISZ-7R-iwj"/>
+                <outlet property="_isPullDownCheckBox" destination="Ldg-o9-wvl" id="gWq-BN-PWr"/>
                 <outlet property="_levelAdjuster" destination="Obk-nj-nAG" id="odv-YH-alr"/>
                 <outlet property="_levelIndicatorsBox" destination="rM4-Tj-lDY" id="A3r-ia-MCK"/>
                 <outlet property="_levelIndicatorsPlaceholder" destination="tnJ-SI-fsl" id="3nV-xN-Fdt"/>
@@ -24,18 +22,10 @@
                 <outlet property="_nibBasedLevelIndicator" destination="vL4-7M-zQR" id="Bhp-wl-uap"/>
                 <outlet property="_nibBasedMatrix" destination="AWh-Tc-ttn" id="puk-3U-APo"/>
                 <outlet property="_nibBasedPopUpButtonDown" destination="9vG-qz-G1e" id="w64-eE-peb"/>
+                <outlet property="_nibBasedPopUpButtonMenu" destination="fPz-1T-NhS" id="ZQH-Op-Z9d"/>
                 <outlet property="_nibBasedPopUpButtonRight" destination="0od-W1-Drl" id="X7Q-rV-Ozn"/>
-                <outlet property="_nibBasedPopUpButtonRightMenu" destination="fPz-1T-NhS" id="NT1-oB-yUL"/>
-                <outlet property="_nibBasedPopUpDown" destination="9vG-qz-G1e" id="KbC-Sp-iyW"/>
-                <outlet property="_nibBasedPopUpRight" destination="0od-W1-Drl" id="bAP-d0-N0u"/>
-                <outlet property="_nibBasedPopUpRightMenu" destination="fPz-1T-NhS" id="JBk-16-DM1"/>
                 <outlet property="_nibBasedSegmentedControl" destination="qXe-dv-G05" id="vl7-lj-1HD"/>
                 <outlet property="_nibBasedSquareButton" destination="3WA-Jk-g6W" id="5fe-QT-M6d"/>
-                <outlet property="_placeHolderDown" destination="AFN-va-6Gh" id="4c3-3h-wYF"/>
-                <outlet property="_placeHolderUp" destination="yQP-Dt-9Fj" id="PS4-8H-Xml"/>
-                <outlet property="_popUpBox" destination="605-En-tsk" id="Fxw-hh-bDY"/>
-                <outlet property="_popUpBoxPlaceHolderDown" destination="AFN-va-6Gh" id="W2w-x0-iPl"/>
-                <outlet property="_popUpBoxPlaceHolderUp" destination="yQP-Dt-9Fj" id="zIQ-tH-DtB"/>
                 <outlet property="_popUpButtonsBox" destination="605-En-tsk" id="P74-QG-13k"/>
                 <outlet property="_popUpButtonsBoxPlaceholderDown" destination="AFN-va-6Gh" id="P1U-gS-pZR"/>
                 <outlet property="_popUpButtonsBoxPlaceholderUp" destination="yQP-Dt-9Fj" id="lxt-sW-KMx"/>
