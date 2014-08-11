@@ -49,7 +49,7 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <rect key="contentRect" x="196" y="240" width="711" height="382"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="711" height="382"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -75,7 +75,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <popUpButtonCell key="cell" type="bevel" bezelStyle="regularSquare" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kO4-Rg-VNM">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="system" size="10"/>
+                                        <font key="font" metaFont="system"/>
                                         <menu key="menu" title="OtherViews" id="43C-hc-wPX">
                                             <items>
                                                 <menuItem id="KXx-a7-Kz8">
@@ -124,7 +124,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <popUpButtonCell key="cell" type="square" bezelStyle="shadowlessSquare" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nZ1-vb-a24">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="system"/>
+                                        <font key="font" metaFont="menu"/>
                                         <menu key="menu" title="OtherViews" id="mfE-XQ-VYV"/>
                                     </popUpButtonCell>
                                 </popUpButton>
@@ -161,7 +161,7 @@
                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v1p-nn-RAd">
                                     <rect key="frame" x="16" y="114" width="112" height="65"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="bevel" title="Bevel Button" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" sound="Pop" inset="2" id="HRp-5n-cxm">
+                                    <buttonCell key="cell" type="bevel" title="NSButton" bezelStyle="regularSquare" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" sound="Pop" inset="2" id="HRp-5n-cxm">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system" size="10"/>
                                     </buttonCell>
@@ -172,7 +172,7 @@
                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3WA-Jk-g6W">
                                     <rect key="frame" x="18" y="50" width="108" height="59"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="square" title="Square Button" bezelStyle="shadowlessSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" sound="Pop" inset="2" id="f2P-c5-sct">
+                                    <buttonCell key="cell" type="square" title="NSButton" bezelStyle="shadowlessSquare" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" sound="Pop" inset="2" id="f2P-c5-sct">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system" size="10"/>
                                     </buttonCell>
@@ -336,7 +336,7 @@
                                 <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qXe-dv-G05">
                                     <rect key="frame" x="77" y="76" width="283" height="25"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <segmentedCell key="cell" alignment="left" style="texturedRounded" trackingMode="selectOne" id="goC-rv-eJw">
+                                    <segmentedCell key="cell" alignment="left" style="texturedRounded" trackingMode="selectAny" id="goC-rv-eJw">
                                         <font key="font" metaFont="system" size="10"/>
                                         <segments>
                                             <segment label="One" width="88"/>

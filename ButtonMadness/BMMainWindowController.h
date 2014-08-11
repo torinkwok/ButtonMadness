@@ -41,7 +41,7 @@
     // Nib based controls
     @property ( assign ) IBOutlet NSPopUpButton* _nibBasedPopUpButtonDown;
     @property ( assign ) IBOutlet NSPopUpButton* _nibBasedPopUpButtonRight;
-        @property ( copy ) IBOutlet NSMenu* _nibBasedPopUpButtonRightMenu;
+        @property ( copy ) IBOutlet NSMenu* _nibBasedPopUpButtonMenu;
 
     // Code based controls
     @property ( assign ) IBOutlet NSView* _popUpButtonsBoxPlaceholderUp;
@@ -49,6 +49,8 @@
 
     @property ( assign ) IBOutlet NSView* _popUpButtonsBoxPlaceholderDown;
         @property ( retain ) NSPopUpButton* _codeBasedPopUpButtonRight;
+
+    @property ( assign ) IBOutlet NSButton* _isPullDownCheckBox;
 
 #pragma mark Buttons Box
 @property ( assign ) IBOutlet NSBox* _buttonsBox;
