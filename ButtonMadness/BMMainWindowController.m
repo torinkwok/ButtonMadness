@@ -33,9 +33,18 @@
 
 #import "BMMainWindowController.h"
 
-#pragma mark Image Resource Name
+// Defaults Keys
+NSString* const BMDefaultsKeyIsPullDown = @"BMDefaultsKeyIsPullDown";
+NSString* const BMDefaultsKeyUsesIcon = @"BMDefaultsKeyUsesIcon";
+NSString* const BMDefaultsKeyNibBasedSegmentedControlState = @"BMDefaultsKeyNibBasedSegmentedControlState";
+NSString* const BMDefaultsKeyCodeBasedSegmentedControlState = @"BMDefaultsKeyCodeBasedSegmentedControlState";
+
+// Image Resource Name
 NSString static* const kMoofOneImageName = @"moof1.png";
 NSString static* const kMoofTwoImageName = @"moof2.png";
+
+// Tags
+typedef enum { BMOne = 10, BMTwo, BMThree } BMSegmentedControlTags;
 
 /* NSSegmentedControl category to unselect all segments.
  *
@@ -92,6 +101,8 @@ NSString static* const kMoofTwoImageName = @"moof2.png";
         @synthesize _codeBasedBevelButton;
     @synthesize _buttonsBoxPlaceholderDown;
         @synthesize _codeBasedSquareButton;
+
+    @synthesize _usesIconCheckBox;
 
 #pragma mark Segmented Control Box
 @synthesize _segmentedControlsBox;
@@ -164,35 +175,147 @@ NSString static* const kMoofTwoImageName = @"moof2.png";
 #pragma mark Conforms <NSNibAwaking> protocol
 - ( void ) awakeFromNib
     {
+    [ self._isPullDownCheckBox setState: [ USER_DEFAULTS boolForKey: BMDefaultsKeyIsPullDown ] ];
+    [ self._usesIconCheckBox setState: [ USER_DEFAULTS boolForKey: BMDefaultsKeyUsesIcon ] ];
+
     NSImage* moofOneImage = [ NSImage imageNamed: kMoofOneImageName ];
     NSImage* moofTwoImage = [ NSImage imageNamed: kMoofTwoImageName ];
 
     [ self._nibBasedBevelButton setImage: moofOneImage ];
     [ self._nibBasedSquareButton setImage: moofOneImage ];
 
+    // ===================================================================
     // NSPopupButton
 
     /* Update its menu ( keep original self._nibBasedPopUpButtonMenu */
-    NSMenu* newMenu = [ self._nibBasedPopUpButtonMenu copy ];
+    NSMenu* buttonMenuCopy = [ self._nibBasedPopUpButtonMenu copy ];
 
-    // Add the image menu item back to the first menu item
-    NSMenuItem* menuItem = [ [ NSMenuItem alloc ] initWithTitle: @"" action: nil keyEquivalent: @"" ];
-    [ menuItem setImage: [ NSImage imageNamed: kMoofOneImageName ] ];
-    [ newMenu insertItem: menuItem atIndex: 0 ];
-    [ menuItem release ];
+    NSMenuItem* topItem = [ [ NSMenuItem alloc ] initWithTitle: @"" action: nil keyEquivalent: @"" ];
+    [ topItem setImage: moofOneImage ];
+    [ buttonMenuCopy insertItem: topItem atIndex: 0 ];
 
-    // Create the pull down button poiting DOWN
-    NSRect buttonFrame = [ self._popUpButtonsBoxPlaceholderUp frame ];
-    self._codeBasedPopUpButtonDown = [ [ [ NSPopUpButton alloc ] initWithFrame: buttonFrame pullsDown: self._isPullDownCheckBox.state ] autorelease ];
+    NSRect templateFrame = [ self._popUpButtonsBoxPlaceholderUp frame ];
+    self._codeBasedPopUpButtonDown = [ [ [ NSPopUpButton alloc ] initWithFrame: templateFrame pullsDown: self._isPullDownCheckBox.state ] autorelease ];
+    [ [ self._codeBasedPopUpButtonDown cell ] setBezelStyle: NSSmallIconButtonBezelStyle ];
     [ [ self._codeBasedPopUpButtonDown cell ] setArrowPosition: NSPopUpArrowAtBottom ];
+    [ [ self._codeBasedPopUpButtonDown cell ] setPreferredEdge: NSMinYEdge ];
+    [ self._codeBasedPopUpButtonDown setMenu: buttonMenuCopy ];
+    [ self._popUpButtonsBox addSubview: self._codeBasedPopUpButtonDown ];
+    [ self._popUpButtonsBoxPlaceholderUp removeFromSuperview ];
 
+    templateFrame = [ self._popUpButtonsBoxPlaceholderDown frame ];
+    self._codeBasedPopUpButtonRight = [ [ [ NSPopUpButton alloc ] initWithFrame: templateFrame pullsDown: self._isPullDownCheckBox.state ] autorelease ];
+    [ [ self._codeBasedPopUpButtonRight cell ] setBezelStyle: NSShadowlessSquareBezelStyle ];
+    [ [ self._codeBasedPopUpButtonRight cell ] setArrowPosition: NSPopUpArrowAtBottom ];
+    [ [ self._codeBasedPopUpButtonRight cell ] setPreferredEdge: NSMaxXEdge ];
+    [ self._codeBasedPopUpButtonRight setMenu: buttonMenuCopy ];
+    [ self._popUpButtonsBox addSubview: self._codeBasedPopUpButtonRight ];
+    [ self._popUpButtonsBoxPlaceholderDown removeFromSuperview ];
+
+    [ buttonMenuCopy release ];
+
+    // ===================================================================
+    // NSButton
+
+    /* Create the bevel button */
+    templateFrame = [ self._buttonsBoxPlaceholderUp frame ];
+    self._codeBasedBevelButton = [ [ [ NSButton alloc ] initWithFrame: templateFrame ] autorelease ];
+    /* NOTE: this button we want alternate title and image, so we need to call this: */
+    [ self._codeBasedBevelButton setButtonType: NSMomentaryChangeButton ];
+    [ self._codeBasedBevelButton setTitle: NSLocalizedString( @"NSButton", nil ) ];
+    [ self._codeBasedBevelButton setAlternateTitle: NSLocalizedString( @"(pressed)", nil ) ];
+    [ self._codeBasedBevelButton setImage: moofOneImage ];
+    [ self._codeBasedBevelButton setAlternateImage: moofTwoImage ];
+
+    [ self._codeBasedBevelButton setFont: [ NSFont systemFontOfSize: 10.f ] ];
+    [ self._codeBasedBevelButton setBezelStyle: NSRegularSquareBezelStyle ];
+    [ self._codeBasedBevelButton setImagePosition: NSImageLeft ];
+    [ self._codeBasedBevelButton setSound: [ NSSound soundNamed: @"Pop" ] ];
+    [ self._codeBasedBevelButton setAlignment: NSLeftTextAlignment ];
+    [ self._codeBasedBevelButton setTarget: self ];
+    [ self._codeBasedBevelButton setAction: @selector( buttonsActions: ) ];
+
+    [ self._buttonsBox addSubview: self._codeBasedBevelButton ];
+    [ self._buttonsBoxPlaceholderUp removeFromSuperview ];
+
+    /* Create the sqaure button */
+    templateFrame = [ self._buttonsBoxPlaceholderDown frame ];
+    self._codeBasedSquareButton = [ [ [ NSButton alloc ] initWithFrame: templateFrame ] autorelease ];
+    [ self._codeBasedSquareButton setButtonType: NSMomentaryChangeButton ];
+    [ self._codeBasedSquareButton setTitle: NSLocalizedString( @"NSButton", nil ) ];
+    [ self._codeBasedSquareButton setAlternateTitle: NSLocalizedString( @"(pressed)", nil ) ];
+    [ self._codeBasedSquareButton setImage: moofOneImage ];
+    [ self._codeBasedSquareButton setAlternateImage: moofTwoImage ];
+
+    [ self._codeBasedSquareButton setFont: [ NSFont systemFontOfSize: 10.f ] ];
+    [ self._codeBasedSquareButton setBezelStyle: NSShadowlessSquareBezelStyle ];
+    [ self._codeBasedSquareButton setImagePosition: NSImageLeft ];
+    [ self._codeBasedSquareButton setSound: [ NSSound soundNamed: @"Pop" ] ];
+    [ self._codeBasedSquareButton setAlignment: NSLeftTextAlignment ];
+    [ self._codeBasedSquareButton setTarget: self ];
+    [ self._codeBasedSquareButton setAction: @selector( buttonsActions: ) ];
+
+    [ self._buttonsBox addSubview: self._codeBasedSquareButton ];
+    [ self._buttonsBoxPlaceholderDown removeFromSuperview ];
+
+    // ===================================================================
+    // NSSegmentedControl
+
+    templateFrame = [ self._segmentedControlsBoxPlaceholder frame ];
+    self._codeBasedSegmentedControl = [ [ [ NSSegmentedControl alloc ] initWithFrame: templateFrame ] autorelease ];
+
+    [ self._codeBasedSegmentedControl setSegmentCount: 3 ];
+    [ self._codeBasedSegmentedControl setSegmentStyle: NSSegmentStyleTexturedRounded ];
+    [ self._codeBasedSegmentedControl setFont: [ NSFont systemFontOfSize: 10.f ] ];
+    [ self._codeBasedSegmentedControl setTarget: self ];
+    [ self._codeBasedSegmentedControl setAction: @selector( segmentsAction: ) ];
+
+    [ self._codeBasedSegmentedControl setLabel: NSLocalizedString( @"One", nil ) forSegment: 0 ];
+    [ self._codeBasedSegmentedControl setLabel: NSLocalizedString( @"Two", nil ) forSegment: 1 ];
+    [ self._codeBasedSegmentedControl setLabel: NSLocalizedString( @"Three", nil ) forSegment: 2 ];
+
+    [ self._codeBasedSegmentedControl setWidth: [ self._nibBasedSegmentedControl widthForSegment: 0 ] forSegment: 0 ];
+    [ self._codeBasedSegmentedControl setWidth: [ self._nibBasedSegmentedControl widthForSegment: 1 ] forSegment: 1 ];
+    [ self._codeBasedSegmentedControl setWidth: [ self._nibBasedSegmentedControl widthForSegment: 2 ] forSegment: 2 ];
+
+    [ [ self._codeBasedSegmentedControl cell ] setTrackingMode: NSSegmentSwitchTrackingSelectAny ];
+    [ [ self._codeBasedSegmentedControl cell ] setTag: BMOne forSegment: 0 ];
+    [ [ self._codeBasedSegmentedControl cell ] setTag: BMTwo forSegment: 1 ];
+    [ [ self._codeBasedSegmentedControl cell ] setTag: BMThree forSegment: 2 ];
+
+    NSImage* imageOne = [ NSImage imageNamed: NSImageNameComputer ];
+    NSImage* imageTwo = [ NSImage imageNamed: NSImageNameFolderSmart ];
+    NSImage* imageThree = [ NSImage imageNamed: NSImageNameBonjour ];
+
+    [ imageOne setSize: NSMakeSize( 16, 16 ) ];
+    [ imageTwo setSize: NSMakeSize( 16, 16 ) ];
+    [ imageThree setSize: NSMakeSize( 16, 16 ) ];
+
+    [ self._nibBasedSegmentedControl setImage: imageOne forSegment: 0 ];
+    [ self._nibBasedSegmentedControl setImage: imageTwo forSegment: 1 ];
+    [ self._nibBasedSegmentedControl setImage: imageThree forSegment: 2 ];
+
+    [ self._codeBasedSegmentedControl setImage: imageOne forSegment: 0 ];
+    [ self._codeBasedSegmentedControl setImage: imageTwo forSegment: 1 ];
+    [ self._codeBasedSegmentedControl setImage: imageThree forSegment: 2 ];
+
+    NSDictionary* nibBasedSegmentedControlStates = [ USER_DEFAULTS dictionaryForKey: BMDefaultsKeyNibBasedSegmentedControlState ];
+    NSDictionary* codeBasedSegmentedControlStates = [ USER_DEFAULTS dictionaryForKey: BMDefaultsKeyCodeBasedSegmentedControlState ];
+    for ( int index = 0; index < self._nibBasedSegmentedControl.segmentCount; index++ )
+        {
+        [ self._nibBasedSegmentedControl setSelected: [ [ nibBasedSegmentedControlStates objectForKey: [ NSString stringWithFormat: @"%d", index ] ] boolValue ] forSegment: index ];
+        [ self._codeBasedSegmentedControl setSelected: [ [ codeBasedSegmentedControlStates objectForKey: [ NSString stringWithFormat: @"%d", index ] ] boolValue ] forSegment: index ];
+        }
+
+    [ self._segmentedControlsBox addSubview: self._codeBasedSegmentedControl ];
+    [ self._segmentedControlsBoxPlaceholder removeFromSuperview ];
     }
 
 #pragma mark The action methods for all the buttons
 // Action methods for the controls that reside in NSPopUpButton box
 - ( IBAction ) changedIsPullDown: ( id )_Sender
     {
-
+    [ USER_DEFAULTS setBool: self._isPullDownCheckBox.state forKey: BMDefaultsKeyIsPullDown ];
     }
 
 - ( IBAction ) popupAction: ( id )_Sender
@@ -201,9 +324,9 @@ NSString static* const kMoofTwoImageName = @"moof2.png";
     }
 
 // Action methods for the controls that reside in NSButton box
-- ( IBAction ) changedIsUseIction: ( id )_Sender
+- ( IBAction ) changedUsesIcon: ( id )_Sender
     {
-
+    [ USER_DEFAULTS setBool: self._usesIconCheckBox.state forKey: BMDefaultsKeyUsesIcon ];
     }
 
 - ( IBAction ) buttonsActions: ( id )_Sender
@@ -219,12 +342,31 @@ NSString static* const kMoofTwoImageName = @"moof2.png";
 // Action methods for the controls that reside in NSSegmentedControl box
 - ( IBAction ) segmentsAction: ( id )_Sender
     {
-
+    [ self _saveCurrentSegmentedControlState ];
     }
 
 - ( IBAction ) unselectorAction: ( id )_Sender
     {
     [ self._nibBasedSegmentedControl unselectAllSegments ];
+    [ self._codeBasedSegmentedControl unselectAllSegments ];
+
+    [ self _saveCurrentSegmentedControlState ];
+    }
+
+- ( void ) _saveCurrentSegmentedControlState
+    {
+    NSDictionary* currentNibBasedSegControlStates = @{ @"0" : [ NSNumber numberWithBool: [ self._nibBasedSegmentedControl.cell isSelectedForSegment: 0 ] ]
+                                                     , @"1" : [ NSNumber numberWithBool: [ self._nibBasedSegmentedControl.cell isSelectedForSegment: 1 ] ]
+                                                     , @"2" : [ NSNumber numberWithBool: [ self._nibBasedSegmentedControl.cell isSelectedForSegment: 2 ] ]
+                                                     };
+
+    NSDictionary* currentCodeBasedSegControlStates = @{ @"0" : [ NSNumber numberWithBool: [ self._codeBasedSegmentedControl.cell isSelectedForSegment: 0 ] ]
+                                                      , @"1" : [ NSNumber numberWithBool: [ self._codeBasedSegmentedControl.cell isSelectedForSegment: 1 ] ]
+                                                      , @"2" : [ NSNumber numberWithBool: [ self._codeBasedSegmentedControl.cell isSelectedForSegment: 2 ] ]
+                                                      };
+
+    [ USER_DEFAULTS setObject: currentNibBasedSegControlStates forKey: BMDefaultsKeyNibBasedSegmentedControlState ];
+    [ USER_DEFAULTS setObject: currentCodeBasedSegControlStates forKey: BMDefaultsKeyCodeBasedSegmentedControlState ];
     }
 
 // Action methods for the controls that reside in NSMatrix box

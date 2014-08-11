@@ -31,6 +31,7 @@
                 <outlet property="_popUpButtonsBoxPlaceholderUp" destination="yQP-Dt-9Fj" id="lxt-sW-KMx"/>
                 <outlet property="_segmentedControlsBox" destination="Qyl-CU-ACo" id="V9z-Zv-nUc"/>
                 <outlet property="_segmentedControlsBoxPlaceholder" destination="Akz-B5-P7D" id="o1I-ZW-Wly"/>
+                <outlet property="_usesIconCheckBox" destination="aQS-BI-xHS" id="3ap-Km-WAP"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="wIS-Ua-hll"/>
             </connections>
         </customObject>
@@ -63,12 +64,12 @@
                                 <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9vG-qz-G1e">
                                     <rect key="frame" x="14" y="114" width="80" height="65"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <popUpButtonCell key="cell" type="bevel" bezelStyle="regularSquare" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kO4-Rg-VNM">
+                                    <popUpButtonCell key="cell" type="bevel" bezelStyle="regularSquare" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" pullsDown="YES" selectedItem="KXx-a7-Kz8" id="kO4-Rg-VNM">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="system"/>
+                                        <font key="font" metaFont="menu"/>
                                         <menu key="menu" title="OtherViews" id="43C-hc-wPX">
                                             <items>
-                                                <menuItem id="KXx-a7-Kz8">
+                                                <menuItem hidden="YES" id="KXx-a7-Kz8">
                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                 </menuItem>
                                                 <menuItem title="Item 2" id="y16-Qb-dbg">
@@ -112,7 +113,7 @@
                                 <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0od-W1-Drl">
                                     <rect key="frame" x="16" y="49" width="76" height="60"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <popUpButtonCell key="cell" type="square" bezelStyle="shadowlessSquare" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nZ1-vb-a24">
+                                    <popUpButtonCell key="cell" type="square" bezelStyle="shadowlessSquare" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" pullsDown="YES" id="nZ1-vb-a24">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="menu"/>
                                         <menu key="menu" title="OtherViews" id="mfE-XQ-VYV"/>
@@ -151,8 +152,8 @@
                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v1p-nn-RAd">
                                     <rect key="frame" x="16" y="114" width="112" height="65"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="bevel" title="NSButton" bezelStyle="regularSquare" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" sound="Pop" inset="2" id="HRp-5n-cxm">
-                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <buttonCell key="cell" type="bevel" title="NSButton" alternateTitle="(pressed)" bezelStyle="regularSquare" image="moof1" imagePosition="left" alignment="center" alternateImage="moof2" borderStyle="border" imageScaling="proportionallyDown" sound="Pop" inset="2" id="HRp-5n-cxm">
+                                        <behavior key="behavior" lightByContents="YES"/>
                                         <font key="font" metaFont="system" size="10"/>
                                     </buttonCell>
                                     <connections>
@@ -162,8 +163,8 @@
                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3WA-Jk-g6W">
                                     <rect key="frame" x="18" y="50" width="108" height="59"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="square" title="NSButton" bezelStyle="shadowlessSquare" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" sound="Pop" inset="2" id="f2P-c5-sct">
-                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <buttonCell key="cell" type="square" title="NSButton" bezelStyle="shadowlessSquare" image="moof1" imagePosition="left" alignment="center" alternateImage="moof2" borderStyle="border" imageScaling="proportionallyDown" sound="Pop" inset="2" id="f2P-c5-sct">
+                                        <behavior key="behavior" lightByContents="YES"/>
                                         <font key="font" metaFont="system" size="10"/>
                                     </buttonCell>
                                     <connections>
@@ -186,7 +187,7 @@
                                         <font key="font" metaFont="miniSystem"/>
                                     </buttonCell>
                                     <connections>
-                                        <action selector="changedIsUseIction:" target="-2" id="EHM-qT-tGr"/>
+                                        <action selector="changedUsesIcon:" target="-2" id="ptC-kA-jlJ"/>
                                     </connections>
                                 </button>
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zzn-CT-3ga">
@@ -329,9 +330,9 @@
                                     <segmentedCell key="cell" alignment="left" style="texturedRounded" trackingMode="selectAny" id="goC-rv-eJw">
                                         <font key="font" metaFont="system" size="10"/>
                                         <segments>
-                                            <segment label="One" width="88"/>
-                                            <segment label="Two" width="88" tag="1"/>
-                                            <segment label="Three" width="99"/>
+                                            <segment label="One" width="88" tag="10"/>
+                                            <segment label="Two" width="88" tag="11"/>
+                                            <segment label="Three" width="99" tag="12"/>
                                         </segments>
                                     </segmentedCell>
                                     <connections>
@@ -469,6 +470,8 @@
         </menu>
     </objects>
     <resources>
+        <image name="moof1" width="39" height="32"/>
+        <image name="moof2" width="39" height="32"/>
         <sound name="Pop"/>
     </resources>
 </document>

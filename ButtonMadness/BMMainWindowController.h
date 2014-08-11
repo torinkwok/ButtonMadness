@@ -33,6 +33,12 @@
 
 #import <Cocoa/Cocoa.h>
 
+// Defaults Keys
+NSString extern* const BMDefaultsKeyIsPullDown;
+NSString extern* const BMDefaultsKeyUsesIcon;
+NSString extern* const BMDefaultsKeyNibBasedSegmentedControlState;
+NSString extern* const BMDefaultsKeyCodeBasedSegmentedControlState;
+
 // BMMainWindowController class
 @interface BMMainWindowController : NSWindowController
 
@@ -63,6 +69,8 @@
         @property ( retain ) NSButton* _codeBasedBevelButton;
     @property ( assign ) IBOutlet NSView* _buttonsBoxPlaceholderDown;
         @property ( retain ) NSButton* _codeBasedSquareButton;
+
+    @property ( assign ) IBOutlet NSButton* _usesIconCheckBox;
 
 #pragma mark Segmented Control Box
 @property ( assign ) IBOutlet NSBox* _segmentedControlsBox;
@@ -109,7 +117,7 @@
 - ( IBAction ) popupAction: ( id )_Sender;
 
 // Action methods for the controls that reside in NSButton box
-- ( IBAction ) changedIsUseIction: ( id )_Sender;
+- ( IBAction ) changedUsesIcon: ( id )_Sender;
 - ( IBAction ) buttonsActions: ( id )_Sender;
 
 - ( IBAction ) dropDownButtonAction: ( id )_Sender;

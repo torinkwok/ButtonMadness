@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BMDefaultsKeyIsPullDown</key>
+	<true/>
+	<key>BMDefaultsKeyUsesIcon</key>
+	<true/>
+	<key>BMDefaultsKeyNibBasedSegmentedControlState</key>
+	<dict>
+		<key>0</key>
+		<false/>
+		<key>1</key>
+		<false/>
+		<key>2</key>
+		<false/>
+	</dict>
+	<key>BMDefaultsKeyCodeBasedSegmentedControlState</key>
+	<dict>
+		<key>0</key>
+		<false/>
+		<key>1</key>
+		<false/>
+		<key>2</key>
+		<false/>
+	</dict>
+</dict>
+</plist>
