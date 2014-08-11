@@ -38,6 +38,10 @@ NSString* const BMDefaultsKeyIsPullDown = @"BMDefaultsKeyIsPullDown";
 NSString* const BMDefaultsKeyUsesIcon = @"BMDefaultsKeyUsesIcon";
 NSString* const BMDefaultsKeyNibBasedSegmentedControlState = @"BMDefaultsKeyNibBasedSegmentedControlState";
 NSString* const BMDefaultsKeyCodeBasedSegmentedControlState = @"BMDefaultsKeyCodeBasedSegmentedControlState";
+NSString* const BMDefaultsKeyNibBasedSelectedRadio = @"BMDefaultsKeyNibBasedSelectedRadio";
+NSString* const BMDefaultsKeyCodeBasedSelectedRadio = @"BMDefaultsKeyCodeBasedSelectedRadio";
+NSString* const BMDefaultsKeyNibBasedColorWellColorState = @"BMDefaultsKeyNibBasedColorWellColorState";
+NSString* const BMDefaultsKeyCodeBasedColorWellColorState = @"BMDefaultsKeyCodeBasedColorWellColorState";
 
 // Image Resource Name
 NSString static* const kMoofOneImageName = @"moof1.png";
@@ -309,6 +313,68 @@ typedef enum { BMOne = 10, BMTwo, BMThree } BMSegmentedControlTags;
 
     [ self._segmentedControlsBox addSubview: self._codeBasedSegmentedControl ];
     [ self._segmentedControlsBoxPlaceholder removeFromSuperview ];
+
+    // ===================================================================
+    // NSMatrix
+
+    NSButtonCell* prototypeRadioCell = [ [ [ NSButtonCell alloc ] init ] autorelease ];
+    [ prototypeRadioCell setButtonType: NSRadioButton ];
+    [ prototypeRadioCell setTitle: NSLocalizedString( @"RadioCell", nil ) ];
+    [ prototypeRadioCell setControlSize: NSSmallControlSize ];
+    [ prototypeRadioCell setFont: [ [ self._nibBasedMatrix cellAtRow: 0 column: 0 ] font ] ];
+
+    /* Create the NSMatrix */
+    templateFrame = [ self._matrixesBoxPlaceholder frame ];
+    self._codeBasedMatrix = [ [ [ NSMatrix alloc ] initWithFrame: templateFrame
+                                                            mode: NSRadioModeMatrix
+                                                       prototype: prototypeRadioCell
+                                                    numberOfRows: 2
+                                                 numberOfColumns: 1 ] autorelease ];
+
+    [ self._nibBasedMatrix selectCellAtRow: [ [ USER_DEFAULTS arrayForKey: BMDefaultsKeyNibBasedSelectedRadio ].firstObject integerValue ]
+                                    column: [ [ USER_DEFAULTS arrayForKey: BMDefaultsKeyNibBasedSelectedRadio ].lastObject integerValue ] ];
+
+    [ self._codeBasedMatrix selectCellAtRow: [ [ USER_DEFAULTS arrayForKey: BMDefaultsKeyCodeBasedSelectedRadio ].firstObject integerValue ]
+                                     column: [ [ USER_DEFAULTS arrayForKey: BMDefaultsKeyCodeBasedSelectedRadio ].lastObject integerValue ] ];
+
+    [ [ self._codeBasedMatrix cellAtRow: 0 column: 0 ] setTitle: NSLocalizedString( @"Radio 1", nil ) ];
+    [ [ self._codeBasedMatrix cellAtRow: 1 column: 0 ] setTitle: NSLocalizedString( @"Radio 2", nil ) ];
+
+    [ self._codeBasedMatrix setTarget: self ];
+    [ self._codeBasedMatrix setAction: @selector( changedRadio: ) ];
+
+    [ self._matrixesBox addSubview: self._codeBasedMatrix ];
+    [ self._matrixesBoxPlaceholder removeFromSuperview ];
+
+    // ===================================================================
+    // NSColorWell
+
+    templateFrame = [ self._colorWellsPlaceholder frame ];
+    self._codeBasedColorWell = [ [ [ NSColorWell alloc ] initWithFrame: templateFrame ] autorelease ];
+
+    CGFloat nibBasedColorWellRed = [ [ [ USER_DEFAULTS dictionaryForKey: BMDefaultsKeyNibBasedColorWellColorState ][ NSCalibratedRGBColorSpace ] objectAtIndex: 0 ] doubleValue ];
+    CGFloat nibBasedColorWellGreen = [ [ [ USER_DEFAULTS dictionaryForKey: BMDefaultsKeyNibBasedColorWellColorState ][ NSCalibratedRGBColorSpace ] objectAtIndex: 1 ] doubleValue ];
+    CGFloat nibBasedColorWellBlue = [ [ [ USER_DEFAULTS dictionaryForKey: BMDefaultsKeyNibBasedColorWellColorState ][ NSCalibratedRGBColorSpace ] objectAtIndex: 2 ] doubleValue ];
+    CGFloat nibBasedColorWellAlpha = [ [ [ USER_DEFAULTS dictionaryForKey: BMDefaultsKeyNibBasedColorWellColorState ][ NSCalibratedRGBColorSpace ] objectAtIndex: 3 ] doubleValue ];
+
+    CGFloat codeBasedColorWellRed = [ [ [ USER_DEFAULTS dictionaryForKey: BMDefaultsKeyCodeBasedColorWellColorState ][ NSCalibratedRGBColorSpace ] objectAtIndex: 0 ] doubleValue ];
+    CGFloat codeBasedColorWellGreen = [ [ [ USER_DEFAULTS dictionaryForKey: BMDefaultsKeyCodeBasedColorWellColorState ][ NSCalibratedRGBColorSpace ] objectAtIndex: 1 ] doubleValue ];
+    CGFloat codeBasedColorWellBlue = [ [ [ USER_DEFAULTS dictionaryForKey: BMDefaultsKeyCodeBasedColorWellColorState ][ NSCalibratedRGBColorSpace ] objectAtIndex: 2 ] doubleValue ];
+    CGFloat codeBasedColorWellAlpha = [ [ [ USER_DEFAULTS dictionaryForKey: BMDefaultsKeyCodeBasedColorWellColorState ][ NSCalibratedRGBColorSpace ] objectAtIndex: 3 ] doubleValue ];
+
+    [ self._nibBasedColorWell setColor: [ NSColor colorWithCalibratedRed: nibBasedColorWellRed
+                                                                   green: nibBasedColorWellGreen
+                                                                    blue: nibBasedColorWellBlue
+                                                                   alpha: nibBasedColorWellAlpha ] ];
+
+    [ self._codeBasedColorWell setColor: [ NSColor colorWithCalibratedRed: codeBasedColorWellRed
+                                                                    green: codeBasedColorWellGreen
+                                                                     blue: codeBasedColorWellBlue
+                                                                    alpha: codeBasedColorWellAlpha ] ];
+    [ self._colorWellsBox addSubview: self._codeBasedColorWell ];
+
+    [ self._codeBasedColorWell setTarget: self ];
+    [ self._codeBasedColorWell setAction: @selector( colorWellAction: ) ];
     }
 
 #pragma mark The action methods for all the buttons
@@ -372,13 +438,39 @@ typedef enum { BMOne = 10, BMTwo, BMThree } BMSegmentedControlTags;
 // Action methods for the controls that reside in NSMatrix box
 - ( IBAction ) changedRadio: ( id )_Sender
     {
+    [ USER_DEFAULTS setObject: @[ [ NSNumber numberWithInteger: self._nibBasedMatrix.selectedRow ]
+                                , [ NSNumber numberWithInteger: self._nibBasedMatrix.selectedColumn ] ]
+                       forKey: BMDefaultsKeyNibBasedSelectedRadio ];
 
+    [ USER_DEFAULTS setObject: @[ [ NSNumber numberWithInteger: self._codeBasedMatrix.selectedRow ]
+                                , [ NSNumber numberWithInteger: self._codeBasedMatrix.selectedColumn ] ]
+                       forKey: BMDefaultsKeyCodeBasedSelectedRadio ];
     }
 
 // Action methods for the controls that reside in NSColorWell box
 - ( IBAction ) colorWellAction: ( id )_Sender
     {
+    NSColor* newColor = [ ( NSColorWell* )_Sender color ];
 
+    NSLog( @"%@", [ newColor colorSpaceName ] );
+    if ( _Sender == self._nibBasedColorWell )
+        {
+        [ USER_DEFAULTS setObject: @{ newColor.colorSpaceName : @[ [ NSNumber numberWithFloat: newColor.redComponent ]
+                                                                 , [ NSNumber numberWithFloat: newColor.greenComponent ]
+                                                                 , [ NSNumber numberWithFloat: newColor.blueComponent ]
+                                                                 , [ NSNumber numberWithFloat: newColor.alphaComponent ]
+                                                                 ] }
+                        forKey: BMDefaultsKeyNibBasedColorWellColorState ];
+        }
+    else if ( _Sender == self._codeBasedColorWell )
+        {
+        [ USER_DEFAULTS setObject: @{ newColor.colorSpaceName : @[ [ NSNumber numberWithFloat: newColor.redComponent ]
+                                                                 , [ NSNumber numberWithFloat: newColor.greenComponent ]
+                                                                 , [ NSNumber numberWithFloat: newColor.blueComponent ]
+                                                                 , [ NSNumber numberWithFloat: newColor.alphaComponent ]
+                                                                 ] }
+                        forKey: BMDefaultsKeyCodeBasedColorWellColorState ];
+        }
     }
 
 // Action methods for the controls that reside in NSLevelIndicator box

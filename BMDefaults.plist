@@ -24,5 +24,35 @@
 		<key>2</key>
 		<false/>
 	</dict>
+	<key>BMDefaultsKeyNibBasedSelectedRadio</key>
+	<array>
+		<string>0</string>
+		<string>0</string>
+	</array>
+	<key>BMDefaultsKeyCodeBasedSelectedRadio</key>
+	<array>
+		<string>0</string>
+		<string>0</string>
+	</array>
+	<key>BMDefaultsKeyNibBasedColorWellColorState</key>
+	<dict>
+		<key>NSCalibratedRGBColorSpace</key>
+		<array>
+			<real>0.4275</real>
+			<real>0.4078</real>
+			<real>0.7373</real>
+			<integer>1</integer>
+		</array>
+	</dict>
+	<key>BMDefaultsKeyCodeBasedColorWellColorState</key>
+	<dict>
+		<key>NSCalibratedRGBColorSpace</key>
+		<array>
+			<real>0.9451000000000001</real>
+			<real>0.6274999999999999</real>
+			<real>0.2235</real>
+			<integer>1</integer>
+		</array>
+	</dict>
 </dict>
 </plist>

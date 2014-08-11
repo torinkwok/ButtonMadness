@@ -38,6 +38,10 @@ NSString extern* const BMDefaultsKeyIsPullDown;
 NSString extern* const BMDefaultsKeyUsesIcon;
 NSString extern* const BMDefaultsKeyNibBasedSegmentedControlState;
 NSString extern* const BMDefaultsKeyCodeBasedSegmentedControlState;
+NSString extern* const BMDefaultsKeyNibBasedSelectedRadio;
+NSString extern* const BMDefaultsKeyCodeBasedSelectedRadio;
+NSString extern* const BMDefaultsKeyNibBasedColorWellColorState;
+NSString extern* const BMDefaultsKeyCodeBasedColorWellColorState;
 
 // BMMainWindowController class
 @interface BMMainWindowController : NSWindowController
