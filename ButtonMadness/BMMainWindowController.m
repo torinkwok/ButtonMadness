@@ -432,7 +432,27 @@ typedef enum { BMOne = 10, BMTwo, BMThree } BMSegmentedControlTags;
 // Action methods for the controls that reside in NSButton box
 - ( IBAction ) changedUsesIcon: ( id )_Sender
     {
+    [ self _setIconPosition: self._nibBasedBevelButton usesIcon: [ self._usesIconCheckBox state ] ];
+    [ self _setIconPosition: self._codeBasedBevelButton usesIcon: [ self._usesIconCheckBox state ] ];
+    [ self _setIconPosition: self._nibBasedSquareButton usesIcon: [ self._usesIconCheckBox state ] ];
+    [ self _setIconPosition: self._codeBasedSquareButton usesIcon: [ self._usesIconCheckBox state ] ];
+
     [ USER_DEFAULTS setBool: self._usesIconCheckBox.state forKey: BMDefaultsKeyUsesIcon ];
+    }
+
+- ( void ) _setIconPosition: ( NSButton* )_Button
+                   usesIcon: ( BOOL )_UsesIcon
+    {
+    if ( _UsesIcon )
+        {
+        [ _Button setImagePosition: NSImageLeft ];
+        [ [ _Button cell ] setAlignment: NSLeftTextAlignment ];
+        }
+    else
+        {
+        [ _Button setImagePosition: NSNoImage ];
+        [ [ _Button cell ] setAlignment: NSCenterTextAlignment ];
+        }
     }
 
 - ( IBAction ) buttonsActions: ( id )_Sender
