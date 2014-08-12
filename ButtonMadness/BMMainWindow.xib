@@ -13,6 +13,7 @@
                 <outlet property="_colorWellsPlaceholder" destination="crh-GU-TT0" id="ISZ-7R-iwj"/>
                 <outlet property="_isPullDownCheckBox" destination="Ldg-o9-wvl" id="gWq-BN-PWr"/>
                 <outlet property="_levelAdjuster" destination="Obk-nj-nAG" id="odv-YH-alr"/>
+                <outlet property="_levelIndicatorLevelStyleSwitcher" destination="IfI-WM-PCe" id="HSO-Or-omD"/>
                 <outlet property="_levelIndicatorsBox" destination="rM4-Tj-lDY" id="A3r-ia-MCK"/>
                 <outlet property="_levelIndicatorsPlaceholder" destination="tnJ-SI-fsl" id="3nV-xN-Fdt"/>
                 <outlet property="_matrixesBox" destination="D3r-oH-TwW" id="nBB-rv-nVF"/>
@@ -396,7 +397,7 @@
                                 <levelIndicator verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vL4-7M-zQR">
                                     <rect key="frame" x="75" y="74" width="182" height="25"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <levelIndicatorCell key="cell" alignment="left" maxValue="10" warningValue="2" criticalValue="2" numberOfMajorTickMarks="4" numberOfTickMarks="7" id="lVu-1O-cTb"/>
+                                    <levelIndicatorCell key="cell" editable="YES" alignment="left" doubleValue="3" maxValue="10" warningValue="5" criticalValue="8" numberOfMajorTickMarks="3" numberOfTickMarks="11" id="lVu-1O-cTb"/>
                                     <connections>
                                         <action selector="levelIndicatorAction:" target="-2" id="Rm2-7f-Od3"/>
                                     </connections>
@@ -413,25 +414,6 @@
                                         <action selector="levelAdjusterAction:" target="-2" id="Hyc-tu-PNw"/>
                                     </connections>
                                 </stepper>
-                                <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jWb-uu-cEC">
-                                    <rect key="frame" x="44" y="11" width="234" height="22"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <popUpButtonCell key="cell" type="push" title="NSDiscreteCapacityLevelIndicatorStyle" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="2" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="ZqJ-fL-H1Y" id="zlZ-kc-aid">
-                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="system" size="10"/>
-                                        <menu key="menu" title="OtherViews" id="gAE-lI-DqQ">
-                                            <items>
-                                                <menuItem title="NSRelevancyLevelIndicatorStyle" id="UN6-Mj-a33"/>
-                                                <menuItem title="NSContinuousCapacityLevelIndicatorStyle" tag="1" id="sZa-2Z-wF1"/>
-                                                <menuItem title="NSDiscreteCapacityLevelIndicatorStyle" state="on" tag="2" id="ZqJ-fL-H1Y"/>
-                                                <menuItem title="NSRatingLevelIndicatorStyle" tag="3" id="std-vy-7Og"/>
-                                            </items>
-                                        </menu>
-                                    </popUpButtonCell>
-                                    <connections>
-                                        <action selector="setStyleAction:" target="-2" id="Obq-lz-h6B"/>
-                                    </connections>
-                                </popUpButton>
                                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pMR-RD-go0">
                                     <rect key="frame" x="2" y="17" width="39" height="11"/>
                                     <autoresizingMask key="autoresizingMask"/>
@@ -441,6 +423,25 @@
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
+                                <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IfI-WM-PCe">
+                                    <rect key="frame" x="45" y="10" width="236" height="22"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="KGv-jy-7RP">
+                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="smallSystem"/>
+                                        <menu key="menu" title="OtherViews" id="rvJ-Fd-r6t">
+                                            <items>
+                                                <menuItem title="NSRelevancyLevelIndicatorStyle" id="xuV-7A-vSU"/>
+                                                <menuItem title="NSContinuousCapacityLevelIndicatorStyle" tag="1" id="aPe-k9-Xxc"/>
+                                                <menuItem title="NSDiscreteCapacityLevelIndicatorStyle" tag="2" id="NQ0-1U-OXc"/>
+                                                <menuItem title="NSRatingLevelIndicatorStyle" tag="3" id="MJx-Pl-gfd"/>
+                                            </items>
+                                        </menu>
+                                    </popUpButtonCell>
+                                    <connections>
+                                        <action selector="changedLevelIndicatorStyle:" target="-2" id="sFj-jG-qRg"/>
+                                    </connections>
+                                </popUpButton>
                             </subviews>
                         </view>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>

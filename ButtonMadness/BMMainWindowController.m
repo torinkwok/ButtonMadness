@@ -42,6 +42,9 @@ NSString* const BMDefaultsKeyNibBasedSelectedRadio = @"BMDefaultsKeyNibBasedSele
 NSString* const BMDefaultsKeyCodeBasedSelectedRadio = @"BMDefaultsKeyCodeBasedSelectedRadio";
 NSString* const BMDefaultsKeyNibBasedColorWellColorState = @"BMDefaultsKeyNibBasedColorWellColorState";
 NSString* const BMDefaultsKeyCodeBasedColorWellColorState = @"BMDefaultsKeyCodeBasedColorWellColorState";
+NSString* const BMDefaultsKeyLevelIndicatorStyle = @"BMDefaultsKeyLevelIndicatorStyle";
+NSString* const BMDefaultsKeyNibBasedLevelIndicatorValue = @"BMDefaultsKeyNibBasedLevelIndicatorValue";
+NSString* const BMDefaultsKeyCodeBasedLevelIndicatorValue = @"BMDefaultsKeyCodeBasedLevelIndicatorValue";
 
 // Image Resource Name
 NSString static* const kMoofOneImageName = @"moof1.png";
@@ -145,6 +148,8 @@ typedef enum { BMOne = 10, BMTwo, BMThree } BMSegmentedControlTags;
     @synthesize _levelIndicatorsPlaceholder;
         @synthesize _codeBasedLevelIndicator;
 
+    @synthesize _levelIndicatorLevelStyleSwitcher;
+
 #pragma mark Initializers and Deallocator
 + ( id ) mainWindowController
     {
@@ -181,6 +186,8 @@ typedef enum { BMOne = 10, BMTwo, BMThree } BMSegmentedControlTags;
     {
     [ self._isPullDownCheckBox setState: [ USER_DEFAULTS boolForKey: BMDefaultsKeyIsPullDown ] ];
     [ self._usesIconCheckBox setState: [ USER_DEFAULTS boolForKey: BMDefaultsKeyUsesIcon ] ];
+    [ self._levelIndicatorLevelStyleSwitcher selectItemWithTag: ( NSLevelIndicatorStyle )
+[ USER_DEFAULTS integerForKey: BMDefaultsKeyLevelIndicatorStyle ] ];
 
     NSImage* moofOneImage = [ NSImage imageNamed: kMoofOneImageName ];
     NSImage* moofTwoImage = [ NSImage imageNamed: kMoofTwoImageName ];
@@ -375,6 +382,39 @@ typedef enum { BMOne = 10, BMTwo, BMThree } BMSegmentedControlTags;
 
     [ self._codeBasedColorWell setTarget: self ];
     [ self._codeBasedColorWell setAction: @selector( colorWellAction: ) ];
+
+    // ===================================================================
+    // NSLevelIndicator
+
+    templateFrame = [ self._levelIndicatorsPlaceholder frame ];
+    self._codeBasedLevelIndicator = [ [ [ NSLevelIndicator alloc ] initWithFrame: templateFrame ] autorelease ];
+    [ self._codeBasedLevelIndicator setTarget: self ];
+    [ self._codeBasedLevelIndicator setAction: @selector( levelIndicatorAction: ) ];
+
+    NSLevelIndicatorStyle currentLevelIndicatorStyle = ( NSLevelIndicatorStyle )[ self._levelIndicatorLevelStyleSwitcher selectedTag ];
+    [ self._nibBasedLevelIndicator.cell setLevelIndicatorStyle: currentLevelIndicatorStyle ];
+    [ self._codeBasedLevelIndicator.cell setLevelIndicatorStyle: currentLevelIndicatorStyle ];
+
+    NSImage* ratingImage = [ NSImage imageNamed: NSImageNameUser ];
+    [ ratingImage setSize: NSMakeSize( 16, 16 ) ];
+    [ self._nibBasedLevelIndicator.cell setImage: ratingImage ];
+    [ self._codeBasedLevelIndicator.cell setImage: ratingImage ];
+
+    [ self._codeBasedLevelIndicator setMinValue: 0 ];
+    [ self._codeBasedLevelIndicator setMaxValue: 10 ];
+    [ self._codeBasedLevelIndicator setWarningValue: 5 ];
+    [ self._codeBasedLevelIndicator setCriticalValue: 8 ];
+    [ self._codeBasedLevelIndicator.cell setEditable: YES ];
+
+    [ self._codeBasedLevelIndicator setTickMarkPosition: NSTickMarkBelow ];
+    [ self._codeBasedLevelIndicator setNumberOfTickMarks: 11 ];
+    [ self._codeBasedLevelIndicator setNumberOfMajorTickMarks: 3 ];
+
+    [ self._nibBasedLevelIndicator setIntegerValue: [ USER_DEFAULTS integerForKey: BMDefaultsKeyNibBasedLevelIndicatorValue ] ];
+    [ self._codeBasedLevelIndicator setIntegerValue: [ USER_DEFAULTS integerForKey: BMDefaultsKeyCodeBasedLevelIndicatorValue ] ];
+
+    [ self._levelIndicatorsBox addSubview: self._codeBasedLevelIndicator ];
+    [ self._levelIndicatorsPlaceholder removeFromSuperview ];
     }
 
 #pragma mark The action methods for all the buttons
@@ -438,13 +478,18 @@ typedef enum { BMOne = 10, BMTwo, BMThree } BMSegmentedControlTags;
 // Action methods for the controls that reside in NSMatrix box
 - ( IBAction ) changedRadio: ( id )_Sender
     {
-    [ USER_DEFAULTS setObject: @[ [ NSNumber numberWithInteger: self._nibBasedMatrix.selectedRow ]
-                                , [ NSNumber numberWithInteger: self._nibBasedMatrix.selectedColumn ] ]
-                       forKey: BMDefaultsKeyNibBasedSelectedRadio ];
-
-    [ USER_DEFAULTS setObject: @[ [ NSNumber numberWithInteger: self._codeBasedMatrix.selectedRow ]
-                                , [ NSNumber numberWithInteger: self._codeBasedMatrix.selectedColumn ] ]
-                       forKey: BMDefaultsKeyCodeBasedSelectedRadio ];
+    if ( _Sender == self._nibBasedMatrix )
+        {
+        [ USER_DEFAULTS setObject: @[ [ NSNumber numberWithInteger: self._nibBasedMatrix.selectedRow ]
+                                    , [ NSNumber numberWithInteger: self._nibBasedMatrix.selectedColumn ] ]
+                           forKey: BMDefaultsKeyNibBasedSelectedRadio ];
+        }
+    else if ( _Sender == self._codeBasedMatrix )
+        {
+        [ USER_DEFAULTS setObject: @[ [ NSNumber numberWithInteger: self._codeBasedMatrix.selectedRow ]
+                                    , [ NSNumber numberWithInteger: self._codeBasedMatrix.selectedColumn ] ]
+                           forKey: BMDefaultsKeyCodeBasedSelectedRadio ];
+        }
     }
 
 // Action methods for the controls that reside in NSColorWell box
@@ -452,7 +497,6 @@ typedef enum { BMOne = 10, BMTwo, BMThree } BMSegmentedControlTags;
     {
     NSColor* newColor = [ ( NSColorWell* )_Sender color ];
 
-    NSLog( @"%@", [ newColor colorSpaceName ] );
     if ( _Sender == self._nibBasedColorWell )
         {
         [ USER_DEFAULTS setObject: @{ newColor.colorSpaceName : @[ [ NSNumber numberWithFloat: newColor.redComponent ]
@@ -481,14 +525,21 @@ typedef enum { BMOne = 10, BMTwo, BMThree } BMSegmentedControlTags;
 
 - ( IBAction ) levelIndicatorAction: ( id )_Sender
     {
-
+    if ( _Sender == self._nibBasedLevelIndicator )
+        [ USER_DEFAULTS setInteger: self._nibBasedLevelIndicator.integerValue forKey: BMDefaultsKeyNibBasedLevelIndicatorValue ];
+    else if ( _Sender == self._codeBasedLevelIndicator )
+        [ USER_DEFAULTS setInteger: self._codeBasedLevelIndicator.integerValue forKey: BMDefaultsKeyCodeBasedLevelIndicatorValue ];
     }
 
-- ( IBAction ) setStyleAction: ( id )_Sender
+- ( IBAction ) changedLevelIndicatorStyle: ( id )_Sender
     {
+    NSLevelIndicatorStyle newStyle = ( NSLevelIndicatorStyle )[ self._levelIndicatorLevelStyleSwitcher selectedTag ];
+    [ self._nibBasedLevelIndicator.cell setLevelIndicatorStyle: newStyle ];
+    [ self._codeBasedLevelIndicator.cell setLevelIndicatorStyle: newStyle ];
 
+    [ USER_DEFAULTS setInteger: self._levelIndicatorLevelStyleSwitcher.selectedTag
+                        forKey: BMDefaultsKeyLevelIndicatorStyle ];
     }
-
 
 @end // BMMainWindowController
 

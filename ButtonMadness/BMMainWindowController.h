@@ -42,6 +42,9 @@ NSString extern* const BMDefaultsKeyNibBasedSelectedRadio;
 NSString extern* const BMDefaultsKeyCodeBasedSelectedRadio;
 NSString extern* const BMDefaultsKeyNibBasedColorWellColorState;
 NSString extern* const BMDefaultsKeyCodeBasedColorWellColorState;
+NSString extern* const BMDefaultsKeyLevelIndicatorStyle;
+NSString extern* const BMDefaultsKeyNibBasedLevelIndicatorValue;
+NSString extern* const BMDefaultsKeyCodeBasedLevelIndicatorValue;
 
 // BMMainWindowController class
 @interface BMMainWindowController : NSWindowController
@@ -113,6 +116,8 @@ NSString extern* const BMDefaultsKeyCodeBasedColorWellColorState;
     @property ( assign ) IBOutlet NSView* _levelIndicatorsPlaceholder;
         @property ( retain ) NSLevelIndicator* _codeBasedLevelIndicator;
 
+    @property ( assign ) IBOutlet NSPopUpButton* _levelIndicatorLevelStyleSwitcher;
+
 + ( id ) mainWindowController;
 
 #pragma mark The action methods for all the buttons
@@ -139,7 +144,7 @@ NSString extern* const BMDefaultsKeyCodeBasedColorWellColorState;
 // Action methods for the controls that reside in NSLevelIndicator box
 - ( IBAction ) levelAdjusterAction: ( id )_Sender;
 - ( IBAction ) levelIndicatorAction: ( id )_Sender;
-- ( IBAction ) setStyleAction: ( id )_Sender;
+- ( IBAction ) changedLevelIndicatorStyle: ( id )_Sender;
 
 @end // BMMainWindowController
 

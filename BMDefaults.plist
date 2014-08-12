@@ -54,5 +54,11 @@
 			<integer>1</integer>
 		</array>
 	</dict>
+	<key>BMDefaultsKeyLevelIndicatorStyle</key>
+	<integer>3</integer>
+	<key>BMDefaultsKeyNibBasedLevelIndicatorValue</key>
+	<integer>6</integer>
+	<key>BMDefaultsKeyCodeBasedLevelIndicatorValue</key>
+	<integer>2</integer>
 </dict>
 </plist>
