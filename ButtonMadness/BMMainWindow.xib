@@ -164,7 +164,7 @@
                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3WA-Jk-g6W">
                                     <rect key="frame" x="18" y="50" width="108" height="59"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="square" title="NSButton" bezelStyle="shadowlessSquare" image="moof1" imagePosition="left" alignment="center" alternateImage="moof2" borderStyle="border" imageScaling="proportionallyDown" sound="Pop" inset="2" id="f2P-c5-sct">
+                                    <buttonCell key="cell" type="square" title="NSButton" alternateTitle="(pressed)" bezelStyle="shadowlessSquare" image="moof1" imagePosition="left" alignment="center" alternateImage="moof2" borderStyle="border" imageScaling="proportionallyDown" sound="Pop" inset="2" id="f2P-c5-sct">
                                         <behavior key="behavior" lightByContents="YES"/>
                                         <font key="font" metaFont="system" size="10"/>
                                     </buttonCell>
@@ -409,7 +409,7 @@
                                 <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Obk-nj-nAG">
                                     <rect key="frame" x="262" y="59" width="19" height="27"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <stepperCell key="cell" continuous="YES" alignment="left" maxValue="100" id="0tL-dj-6Xj"/>
+                                    <stepperCell key="cell" continuous="YES" alignment="left" maxValue="10" id="0tL-dj-6Xj"/>
                                     <connections>
                                         <action selector="levelAdjusterAction:" target="-2" id="Hyc-tu-PNw"/>
                                     </connections>

@@ -520,7 +520,38 @@ typedef enum { BMOne = 10, BMTwo, BMThree } BMSegmentedControlTags;
 // Action methods for the controls that reside in NSLevelIndicator box
 - ( IBAction ) levelAdjusterAction: ( id )_Sender
     {
+    NSInteger static theLastTimeValue;
+    NSInteger currentStepperValue = [ _Sender integerValue ];
 
+    NSInteger newValueForNibBasedLevelIndicator = 0;
+    NSInteger newValueForCodeBasedLevelIndicator = 0;
+
+    NSInteger minValueForNibBasedLevelIndicator = [ self._nibBasedLevelIndicator minValue ];
+    NSInteger minValueForCodeBasedLevelIndicator = [ self._codeBasedLevelIndicator minValue ];
+    NSInteger maxValueForNibBasedLevelIndicator = [ self._nibBasedLevelIndicator maxValue ];
+    NSInteger maxValueForCodeBasedLevelIndicator = [ self._codeBasedLevelIndicator maxValue ];
+
+    if ( currentStepperValue > theLastTimeValue )
+        {
+        newValueForNibBasedLevelIndicator = [ self._nibBasedLevelIndicator integerValue ] + ( NSInteger )[ _Sender increment ];
+        newValueForCodeBasedLevelIndicator = [ self._codeBasedLevelIndicator integerValue ] + ( NSInteger )[ _Sender increment ];
+
+        [ self._nibBasedLevelIndicator setIntegerValue: ( newValueForNibBasedLevelIndicator > maxValueForNibBasedLevelIndicator ) ? maxValueForNibBasedLevelIndicator : newValueForNibBasedLevelIndicator ];
+        [ self._codeBasedLevelIndicator setIntegerValue: ( newValueForCodeBasedLevelIndicator > maxValueForCodeBasedLevelIndicator ) ? maxValueForCodeBasedLevelIndicator : newValueForCodeBasedLevelIndicator ];
+        }
+    else if ( currentStepperValue < theLastTimeValue )
+        {
+        newValueForNibBasedLevelIndicator = [ self._nibBasedLevelIndicator integerValue ] - ( NSInteger )[ _Sender increment ];
+        newValueForCodeBasedLevelIndicator = [ self._codeBasedLevelIndicator integerValue ] - ( NSInteger )[ _Sender increment ];
+
+        [ self._nibBasedLevelIndicator setIntegerValue: ( newValueForNibBasedLevelIndicator < minValueForNibBasedLevelIndicator ) ? minValueForNibBasedLevelIndicator : newValueForNibBasedLevelIndicator ];
+        [ self._codeBasedLevelIndicator setIntegerValue: ( newValueForCodeBasedLevelIndicator < minValueForCodeBasedLevelIndicator ) ? minValueForCodeBasedLevelIndicator : newValueForCodeBasedLevelIndicator ];
+        }
+
+    [ USER_DEFAULTS setInteger: self._nibBasedLevelIndicator.integerValue forKey: BMDefaultsKeyNibBasedLevelIndicatorValue ];
+    [ USER_DEFAULTS setInteger: self._codeBasedLevelIndicator.integerValue forKey: BMDefaultsKeyCodeBasedLevelIndicatorValue ];
+
+    theLastTimeValue = currentStepperValue;
     }
 
 - ( IBAction ) levelIndicatorAction: ( id )_Sender
